@@ -1,4 +1,19 @@
 $(document).ready(function () {
+  //내비게이션 메뉴 클릭시 해당하는 컨텐츠 상단 top:58px 위치에 올라오게 하기
+ $('.gnb > li').on({
+  'click focus': function () {
+      var num = $(this).index();
+      console.log(num);
+      var con = $('.con').eq(num).offset(); //각 콘텐츠에 top위치값을 변수에 저장
+      console.log(con);
+      
+      $('html').animate({
+          scrollTop: con.top - 50
+      }, 500);
+  }
+
+});
+
   //trigger
   $('.trigger').click(function () {
     $(this).toggleClass('active');
@@ -77,3 +92,8 @@ $(window).on('scroll', function () {
   }
 
 });
+
+function highlightLink(anchor) {
+  $('.gnb .active').removeClass('active');
+  $('.gnb').find('[href="#' + anchor + '"]').addClass('active');
+}
