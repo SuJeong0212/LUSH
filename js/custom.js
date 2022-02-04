@@ -2,10 +2,10 @@ $(document).ready(function () {
   //trigger
   $('.trigger').click(function () {
     $(this).toggleClass('active');
-    $('.gnb').toggleClass('active');
+    $('.gnb-m').toggleClass('active');
   });
-  $('.gnb a').click(function () {
-    $('.gnb').addClass('active');
+  $('.gnb-m a').click(function () {
+    $('.gnb-m').addClass('active');
     $('.trigger').removeClass('active');
   })
 
@@ -77,8 +77,3 @@ $(window).on('scroll', function () {
   }
 
 });
-
-function highlightLink(anchor) {
-  $('nav .active').removeClass('active');
-  $("nav").find('[href="#' + anchor + '"]').addClass('active');
-}
