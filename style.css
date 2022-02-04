@@ -5,7 +5,7 @@
 /* Fontawesome 4.7 */
 @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
-*{font-family: 'Montserrat', 'Noto Sans KR', sans-serif;}
+*{font-family: 'Montserrat', 'Noto Sans KR', sans-serif; margin:0; box-sizing: border-box;}
 
 body{
     font-size:16px;
@@ -41,6 +41,62 @@ button{
     width:1300px;
     margin:auto;
 }
+.intro::after{
+    content:'';
+    display: block;
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width:100%;
+    height:100%;
+    background-image: linear-gradient(to left, rgba(0,0,0,0.8), transparent);
+}
+.intro::before{
+    content:'';
+    display: block;
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width:100%;
+    height:100%;
+    background-image: linear-gradient(to right, rgba(0,0,0,0.8), transparent);
+}
+.inner .heading{
+    position: absolute;
+    width: 100%;
+    top: 57%;
+    left: 50%;
+    color:#fff;
+    margin:0 auto;
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
+.heading-h1{
+    width:100%;
+    height:80px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.inner .heading h1{
+    font-size: 70px;
+    letter-spacing: -5px;
+    animation: txt 700ms ease-in-out;
+}
+@keyframes txt {
+    0%{
+        transform: translateY(100%);
+    }
+}
+.heading-txt{
+    font-weight: 900;
+    font-size: 48px;
+    margin-top: 10px;
+}
+
 
 /* Header */
 header {
@@ -82,6 +138,7 @@ nav {
 }
 .logo {width:130px;}
 .logo img{width:100%;}
+.gnb-m{display: none;}
 .gnb {
     display: flex;
 }
@@ -90,12 +147,16 @@ nav {
 }
 .gnb li a {
     color:#fff;
+    transition: 300ms ease-in-out;
 }
 .gnb li a:hover {
     color:#333;
 }
 .gnb li:last-child{
     margin-right:0;
+}
+.gnb-inner.active{
+    font-weight: 900;
 }
 .trigger{
     display: none;
@@ -357,6 +418,7 @@ hr.divider {
 }
 .post-items {
     display: flex;
+    cursor: pointer;
 }
 .store-post .post-items {
     flex-direction: column;
@@ -367,9 +429,14 @@ hr.divider {
     border-radius: 30px 0 30px 0;
     overflow: hidden;
 }
+.event-post .post-items:hover .post-image img{
+    transform: scale(1.1);
+    overflow: hidden;
+}
 .post-image img{
     width:100%;
     height: 100%;
+    transition: 300ms ease-in-out;
 }
 .post-desc {
     flex:3;
@@ -383,7 +450,7 @@ hr.divider {
     text-transform: uppercase;
 }
 .post-desc p {
-    font-size: 18px;
+    font-size: 14px;
     line-height: 1.6em;
     font-weight: 100;
 }
@@ -391,7 +458,7 @@ hr.divider {
     font-size: 14px;
     color:#6d6d6d;
     display: block;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 /* Slogan Section */
