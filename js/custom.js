@@ -1,19 +1,4 @@
 $(document).ready(function () {
-  //내비게이션 메뉴 클릭시 해당하는 컨텐츠 상단 top:58px 위치에 올라오게 하기
- $('.gnb > li').on({
-  'click focus': function () {
-      var num = $(this).index();
-      console.log(num);
-      var con = $('.con').eq(num).offset(); //각 콘텐츠에 top위치값을 변수에 저장
-      console.log(con);
-      
-      $('html').animate({
-          scrollTop: con.top - 50
-      }, 500);
-  }
-
-});
-
   //trigger
   $('.trigger').click(function () {
     $(this).toggleClass('active');
@@ -25,7 +10,7 @@ $(document).ready(function () {
   })
 
   //Sliding jQuery
-  $('.gnb a, .top').click(function (e) {
+  $('.top').click(function (e) {
     e.preventDefault();
     $.scrollTo(0, 800);
   });
@@ -97,3 +82,37 @@ function highlightLink(anchor) {
   $('.gnb .active').removeClass('active');
   $('.gnb').find('[href="#' + anchor + '"]').addClass('active');
 }
+
+let gnb_inner = document.querySelectorAll('.gnb-inner')
+let gnb_con = document.querySelectorAll('.con')
+// let secCount = gnb_con.length;
+// let con1 = gnb_con[1].offsetTop
+// let con2 = gnb_con[2].offsetTop
+// let con3 = gnb_con[3].offsetTop
+// let con4 = gnb_con[4].offsetTop
+// console.log(gnb_con[1].offsetTop);
+
+// gnb_inner.addEventListener('click',() =>{
+//   con1.scrollIntoView({behavior:"smooth"})
+// })
+
+gnb_inner.forEach((item, index)=>{
+  item.addEventListener('click',function(){
+    gnb_con[index].scrollIntoView({
+      behavior:'smooth'
+    });
+  })
+})
+
+// navMenu[0].addEventListener('click', () => {
+//   document.querySelector('#sec01').scrollIntoView({behavior:"smooth"});
+// })
+// navMenu[1].addEventListener('click', () => {
+//   document.querySelector('#sec02').scrollIntoView({behavior:"smooth"});
+// })
+// navMenu[2].addEventListener('click', () => {
+//   document.querySelector('#sec03').scrollIntoView({behavior:"smooth"});
+// })
+// navMenu[3].addEventListener('click', () => {
+//   document.querySelector('#sec04').scrollIntoView({behavior:"smooth"});
+// })
